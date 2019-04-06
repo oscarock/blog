@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('blog','BlogController')->except('create','edit', 'update', 'destroy');
+
