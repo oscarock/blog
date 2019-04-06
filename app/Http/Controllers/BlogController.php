@@ -47,4 +47,18 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         return $blog;
     }
+
+   /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
+    }
+
+
 }

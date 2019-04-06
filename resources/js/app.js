@@ -14,7 +14,11 @@ new Vue({
             })
         },
         deleteBlog: function(blogs){
-            console.log(blogs.id)
+            var urlDelete =  "api/blog/" + blogs.id
+            axios.delete(urlDelete).then(response => {
+                this.getAllBlogs()
+                toastr.success("Eliminado Correctamente")
+            })
         }
     }
 })
