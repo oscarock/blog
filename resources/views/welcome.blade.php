@@ -14,7 +14,7 @@
             <h1 class="page-header text-center py-4">Registros Mi Blog</h1>
           </div>
           <div class="col-md-7">
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create">Nuevo Blog</a><br><br>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create"><i class="fas fa-plus-circle"></i> Nuevo Blog</a><br><br>
           </div>
           <div class="col-md-12">
             <table class="table table-hover">
@@ -29,14 +29,15 @@
                   <td>@{{ blogs.title }}</td>
                   <td>@{{ blogs.body }}</td>
                   <td>
-                    <a href="#"><i class="far fa-eye"></i></a>
+                    <a href="#" v-on:click.prevent="viewBlog(blogs)"><i class="far fa-eye"></i></a>
                     <a href="#" v-on:click.prevent="deleteBlog(blogs)"><i class="far fa-trash-alt"></i></a>
                   </td>
                 </tr>
             </table>
           </div>
         </div>
-        @include('create')    
+        @include('create')  
+        @include('view')    
       </div>  
       <script src="{{ asset('js/app.js') }}"></script>
     </body>

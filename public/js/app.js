@@ -24460,7 +24460,8 @@ new Vue({
         blogs: [],
         title: "",
         body: "",
-        errors: []
+        errors: [],
+        fillBlog: {'id': '', 'title': '', 'body': ''}
     },
     methods: {
         getAllBlogs: function(){
@@ -24489,9 +24490,14 @@ new Vue({
                 $("#create").modal("hide")
                 toastr.success("Agregado Correctamente")
             }).catch(error => {
-                console.log(error.response.data)
                 this.errors = error.response.data.errors
             })
+        },
+        viewBlog: function(blogs){
+            this.fillBlog.id = blogs.id
+            this.fillBlog.title = blogs.title
+            this.fillBlog.body = blogs.body
+            $("#view").modal("show")
         }
     }
 })
