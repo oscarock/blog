@@ -13603,3 +13603,23 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=axios.map
+new Vue({
+    el: '#app',
+    created: function(){
+        this.getAllBlogs()
+    },
+    data: {
+        blogs: []
+    },
+    methods: {
+        getAllBlogs: function(){
+            var urlBlogs = "api/blog"
+            axios.get(urlBlogs).then(response => {
+                this.blogs = response.data
+            })
+        },
+        deleteBlog: function(blogs){
+            console.log(blogs.id)
+        }
+    }
+})
